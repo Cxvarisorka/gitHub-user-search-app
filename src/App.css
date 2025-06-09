@@ -1,0 +1,288 @@
+@import url('https://fonts.googleapis.com/css2?family=Space+Mono:ital,wght@0,400;0,700;1,400;1,700&display=swap');
+
+/*================== VARIABLES ==================*/
+:root {
+  --bg-color: #F6F8FF;
+  --card-bg: #FEFEFE;
+  --stats-bg: #F6F8FF;
+  --text-color: #2B3442;
+  --input-bg: #FEFEFE;
+  --input-color: #4B6A9B;
+  --button-bg: #0079FF;
+  --button-text: white;
+}
+
+body.dark {
+  --bg-color: #141D2F;
+  --card-bg: #1E2A47;
+  --stats-bg: #141D2F;
+  --text-color: #FFFFFF;
+  --input-bg: #1E2A47;
+  --input-color: #FFFFFF;
+  --button-bg: #0079FF;
+  --button-text: white;
+}
+
+/*================== BASE STYLES ==================*/
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+  font-family: 'Space Mono', monospace;
+}
+
+body {
+  height: 100vh;
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+main {
+  width: 730px;
+  height: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+}
+
+/*================== HEADER ==================*/
+#top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+#top button {
+  display: flex;
+  align-items: center;
+  font-size: 13px;
+  gap: 16px;
+  letter-spacing: 2.5px;
+  text-transform: uppercase;
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: var(--text-color);
+  font-weight: bold;
+}
+
+/*================== FORM ==================*/
+form {
+  width: 100%;
+  background-color: var(--input-bg);
+  padding: 8px 12px 8px 24px;
+  border-radius: 16px;
+  display: flex;
+  justify-content: space-between;
+}
+
+form div {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  width: 100%;
+}
+
+form img {
+  width: 24px;
+}
+
+form input {
+  border: none;
+  font-size: 18px;
+  width: 100%;
+  background-color: var(--input-bg);
+  color: var(--input-color);
+}
+
+form input:focus {
+  outline: none;
+}
+
+button {
+  border-radius: 10px;
+  border: none;
+  background-color: var(--button-bg);
+  padding: 12px 24px;
+  font-weight: bold;
+  color: var(--button-text);
+}
+
+/*================== USER CARD ==================*/
+.user-card {
+  background-color: var(--card-bg);
+  border-radius: 15px;
+  padding: 2rem;
+  display: flex;
+  gap: 2rem;
+  color: var(--text-color);
+}
+
+.error-card {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    gap: 20px;
+    background-color: var(--card-bg);
+    border-radius: 15px;
+    padding: 2rem;
+}
+
+.avatar {
+  width: 117px;
+  height: 117px;
+  border-radius: 50%;
+}
+
+.user-content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
+}
+
+.user-header {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  align-items: start;
+}
+
+.name-wrapper h2 {
+  margin: 0;
+  font-size: 1.6rem;
+}
+
+.username {
+  color: #0079ff;
+  margin: 0.3rem 0;
+}
+
+.joined {
+  font-size: 0.9rem;
+  color: gray;
+}
+
+.bio {
+  opacity: 0.75;
+  font-size: 15px;
+}
+
+/*================== STATS ==================*/
+.user-stats {
+  background-color: var(--stats-bg);
+  padding: 1rem 2rem;
+  border-radius: 10px;
+  display: flex;
+  justify-content: space-between;
+  text-align: center;
+}
+
+.user-stats div p {
+  margin: 0;
+  font-size: 0.9rem;
+}
+
+.user-stats div strong {
+  display: block;
+  font-size: 1.2rem;
+}
+
+
+/*================== LINKS ==================*/
+.user-links {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+}
+
+.user-links p {
+  display: flex;
+  align-items: center;
+  gap: 0.7rem;
+  font-size: 0.9rem;
+  opacity: 0.85;
+}
+
+.user-links a {
+  color: inherit;
+  text-decoration: none;
+}
+
+form {
+  /* existing styles */
+  box-shadow: 0px 16px 30px -10px rgba(70, 96, 187, 0.2);
+}
+
+.user-card, .error-card {
+  /* existing styles */
+  box-shadow: 0px 16px 30px -10px rgba(70, 96, 187, 0.2);
+}
+
+body.dark form,
+body.dark .user-card, body.dark .error-card {
+  box-shadow: 0px 16px 30px -10px rgba(0, 0, 0, 0.5);
+}
+
+
+@media screen and (max-width: 800px) {
+
+    body {
+        padding-top: 20px;
+        padding-bottom: 20px;
+        height: auto;
+    }
+    main {
+        width: 350px;
+        gap: 20px;
+    }
+
+    .user-card, .user-stats, .user-header {
+        flex-direction: column;
+        text-align: left;
+    }
+
+    .user-links {
+        width: 100%;
+        grid-template-columns: 1fr;
+    }
+
+    .user-links p {
+        width: 100%;
+        padding-right: 10px; /* add some right padding */
+        overflow-wrap: break-word; /* break long words to next line */
+        word-break: break-word;
+        box-sizing: border-box; /* include padding in width */
+    }
+    
+    .user-stats {
+        padding-left: 20px;
+        gap: 20px;
+    }
+
+    form {
+        flex-direction: column;
+        gap: 20px;
+        padding: 20px;
+    }
+
+    form button {
+        padding: 9px;
+    }
+
+
+    form input {
+        font-size: 15px;
+    }
+
+
+}
+
+@media screen and (max-width: 400px) {
+    main {
+        width: 270px;
+    }
+}
