@@ -13,7 +13,7 @@ import iconCompany from './assets/icon-company.svg';
 
 const App = () => {
   const [user, setUser] = useState();
-  const [darkMode, setDarkMode] = useState(false);
+  const [darkMode, setDarkMode] = useState(true);
 
   const toggleTheme = () => {
     setDarkMode(prev => !prev);
@@ -22,6 +22,8 @@ const App = () => {
   useEffect(() => {
     document.body.className = darkMode ? 'dark' : '';
   }, [darkMode]);
+
+  
 
   const handleSearch = async (username) => {
     try {
@@ -35,6 +37,10 @@ const App = () => {
       console.log(err);
     }
   }
+  
+  useEffect(() => {
+    handleSearch('octocat');
+  }, [])
 
   const handleSubmit = (e) => {
     e.preventDefault();
